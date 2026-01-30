@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="es-AR">
 <head>
@@ -36,28 +37,25 @@
     }
 
     :root{
-      --bg:#08080d;
+      --bg:#07070c;
       --text:#f8f9ff;
       --muted:#b9bdd7;
       --line:rgba(255,255,255,.10);
       --ok:#25D366;
 
-      /* Paleta */
-      --pink:#ff2bd6;
-      --cyan:#00e5ff;
-      --blue:#3a7bff;
-      --green:#27f59a;
-      --black:#000000;
-      --white:#ffffff;
+      /* NEÓN (cian + verde) */
+      --cyan-neon:#00F5FF;   /* cian neón */
+      --green-neon:#39FF14;  /* verde neón */
+      --pink-neon:#ff2bd6;
+      --blue-neon:#3a7bff;
 
-      /* Degradé principal (rosa + cian + azul + verde + negro + blanco) */
+      /* Degradé NEÓN (dominante cian/verde) */
       --brand-grad: linear-gradient(135deg,
-        rgba(255, 43, 214, .98) 0%,
-        rgba(0, 229, 255, .98) 22%,
-        rgba(58, 123, 255, .98) 44%,
-        rgba(39, 245, 154, .98) 66%,
-        rgba(0, 0, 0, .98) 83%,
-        rgba(255, 255, 255, .98) 100%
+        rgba(0, 245, 255, 1) 0%,
+        rgba(57, 255, 20, 1) 36%,
+        rgba(255, 43, 214, .95) 62%,
+        rgba(58, 123, 255, .95) 84%,
+        rgba(255,255,255,.95) 100%
       );
 
       --shadow: 0 18px 60px rgba(0,0,0,.55);
@@ -74,10 +72,10 @@
       margin:0;
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       background:
-        radial-gradient(1200px 700px at 15% -10%, rgba(255,43,214,.16), transparent 60%),
-        radial-gradient(1000px 650px at 85% 5%, rgba(0,229,255,.14), transparent 58%),
-        radial-gradient(900px 600px at 50% 92%, rgba(39,245,154,.10), transparent 60%),
-        radial-gradient(900px 600px at 50% 30%, rgba(58,123,255,.12), transparent 60%),
+        radial-gradient(900px 520px at 12% -10%, rgba(0,245,255,.22), transparent 58%),
+        radial-gradient(900px 520px at 92% 6%, rgba(57,255,20,.18), transparent 58%),
+        radial-gradient(900px 520px at 50% 86%, rgba(255,43,214,.10), transparent 60%),
+        radial-gradient(900px 520px at 50% 30%, rgba(58,123,255,.10), transparent 60%),
         var(--bg);
       color:var(--text);
       line-height:1.35;
@@ -89,7 +87,7 @@
     .topbar{
       position:sticky; top:0; z-index:40;
       backdrop-filter: blur(14px);
-      background: linear-gradient(to bottom, rgba(8,8,13,.82), rgba(8,8,13,.42));
+      background: linear-gradient(to bottom, rgba(7,7,12,.84), rgba(7,7,12,.42));
       border-bottom:1px solid var(--line);
     }
     .topbar-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
@@ -99,7 +97,10 @@
       width:46px; height:46px; border-radius:18px;
       padding:2px;
       background: var(--brand-grad);
-      box-shadow: 0 12px 34px rgba(0,0,0,.45);
+      box-shadow:
+        0 12px 34px rgba(0,0,0,.45),
+        0 0 28px rgba(0,245,255,.25),
+        0 0 30px rgba(57,255,20,.18);
     }
     .logoInner{
       width:100%; height:100%;
@@ -152,10 +153,13 @@
       border:none;
       background: var(--brand-grad);
       color:#06060a;
-      box-shadow: 0 22px 60px rgba(0,0,0,.42);
-      filter:saturate(1.05);
+      box-shadow:
+        0 22px 60px rgba(0,0,0,.42),
+        0 0 28px rgba(0,245,255,.22),
+        0 0 28px rgba(57,255,20,.16);
+      filter:saturate(1.12);
     }
-    .btn-primary:hover{filter:saturate(1.12) brightness(1.03)}
+    .btn-primary:hover{filter:saturate(1.22) brightness(1.03)}
 
     .pill{
       display:inline-flex; gap:8px; align-items:center;
@@ -170,7 +174,10 @@
     .dot{
       width:8px;height:8px;border-radius:99px;
       background: var(--brand-grad);
-      box-shadow: 0 0 0 3px rgba(255,255,255,.04);
+      box-shadow:
+        0 0 0 3px rgba(255,255,255,.04),
+        0 0 14px rgba(0,245,255,.28),
+        0 0 14px rgba(57,255,20,.22);
     }
 
     header.hero{padding:28px 0 18px;}
@@ -196,18 +203,18 @@
       background-image: var(--hero-bg);
       background-size: cover;
       background-position: center;
-      filter: saturate(1.05) contrast(1.05);
+      filter: saturate(1.08) contrast(1.06);
       transform: scale(1.02);
       opacity:.72;
     }
     .hero-overlay{
       position:absolute; inset:0;
       background:
-        radial-gradient(900px 500px at 10% 10%, rgba(255,43,214,.30), transparent 55%),
-        radial-gradient(900px 500px at 92% 10%, rgba(0,229,255,.26), transparent 55%),
-        radial-gradient(900px 500px at 50% 18%, rgba(58,123,255,.18), transparent 62%),
-        radial-gradient(900px 500px at 50% 88%, rgba(39,245,154,.16), transparent 62%),
-        linear-gradient(180deg, rgba(8,8,13,.55), rgba(8,8,13,.92));
+        radial-gradient(900px 500px at 10% 10%, rgba(0,245,255,.30), transparent 55%),
+        radial-gradient(900px 500px at 92% 12%, rgba(57,255,20,.26), transparent 55%),
+        radial-gradient(900px 500px at 50% 18%, rgba(58,123,255,.14), transparent 62%),
+        radial-gradient(900px 500px at 50% 88%, rgba(255,43,214,.12), transparent 62%),
+        linear-gradient(180deg, rgba(7,7,12,.55), rgba(7,7,12,.92));
     }
     .hero-content{position:relative; padding:22px 20px;}
     .kicker{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:12px;}
@@ -237,7 +244,7 @@
     .mini span{
       display:inline-flex; gap:8px; align-items:center;
       padding:8px 10px; border:1px solid rgba(255,255,255,.14);
-      border-radius:999px; background:rgba(8,8,13,.35);
+      border-radius:999px; background:rgba(7,7,12,.35);
       backdrop-filter: blur(10px);
     }
     .check{
@@ -324,13 +331,17 @@
       position:absolute; inset:-1px;
       border-radius:18px;
       padding:1px;
-      background: var(--brand-grad);
+      background: linear-gradient(135deg,
+        rgba(0,245,255,.95),
+        rgba(57,255,20,.90),
+        rgba(0,245,255,.55)
+      );
       -webkit-mask:
         linear-gradient(#000 0 0) content-box,
         linear-gradient(#000 0 0);
       -webkit-mask-composite: xor;
               mask-composite: exclude;
-      opacity:.55;
+      opacity:.75;
       pointer-events:none;
     }
     .prod-media{
@@ -358,39 +369,20 @@
       padding:7px 10px;
       border-radius:999px;
       border:1px solid rgba(255,255,255,.12);
-      background: rgba(8,8,13,.35);
+      background: rgba(7,7,12,.35);
       font-size:12px;
       color:rgba(248,249,255,.92);
     }
-
-    .features{display:grid; gap:12px; grid-template-columns: repeat(3, minmax(0,1fr));}
-    .feat{padding:14px; border-radius:18px; background: rgba(255,255,255,.03); border:1px solid var(--line);}
-    .feat b{display:block; font-size:14px; margin-bottom:6px;}
-    .feat span{color:var(--muted); font-size:13px;}
-
-    .steps{display:grid; gap:12px; grid-template-columns: repeat(3, minmax(0,1fr));}
-    .step{padding:14px; border-radius:18px; background: rgba(255,255,255,.03); border:1px solid var(--line);}
-    .badge{
-      display:inline-flex; align-items:center; justify-content:center;
-      width:30px;height:30px;border-radius:12px;
-      background: var(--brand-grad);
-      color:#06060a;
-      font-weight:900;
-      margin-bottom:10px;
-      border:1px solid rgba(255,255,255,.18);
-    }
-    .step b{display:block; margin-bottom:6px;}
-    .step span{color:var(--muted); font-size:13px;}
 
     .cta-band{
       padding:16px;
       border-radius:20px;
       border:1px solid rgba(255,255,255,.12);
       background: linear-gradient(135deg,
-        rgba(255,43,214,.14),
-        rgba(0,229,255,.12),
-        rgba(58,123,255,.10),
-        rgba(39,245,154,.08)
+        rgba(0,245,255,.14),
+        rgba(57,255,20,.10),
+        rgba(255,43,214,.08),
+        rgba(58,123,255,.08)
       );
       display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap;
       box-shadow: var(--shadow);
@@ -428,11 +420,10 @@
     .credit a{color:rgba(248,249,255,.92); text-decoration:none; border-bottom:1px dashed rgba(255,255,255,.25)}
     .credit a:hover{border-bottom-color:rgba(255,255,255,.6)}
 
-    /* WhatsApp Floating Button */
     .wa-float{
       position:fixed;
       right:16px;
-      bottom:16px; /* JS ajusta para no tapar footer */
+      bottom:16px;
       z-index:60;
       width:58px; height:58px;
       border-radius:20px;
@@ -449,12 +440,10 @@
     @media (max-width: 980px){
       .hero-grid{grid-template-columns:1fr}
       .grid3{grid-template-columns:1fr}
-      .features{grid-template-columns:1fr}
-      .steps{grid-template-columns:1fr}
-      .faq{grid-template-columns:1fr}
       .prod{grid-column: span 12}
       .nav a{display:none}
       .nav .btn{display:inline-flex}
+      .faq{grid-template-columns:1fr}
     }
     @media (max-width: 520px){
       .topbar-inner{gap:10px}
@@ -598,23 +587,6 @@
           </article>
         </div>
 
-        <div style="height:14px"></div>
-
-        <div class="features">
-          <div class="feat">
-            <b>Oversize</b>
-            <span>Caída amplia, ideal marca/colección.</span>
-          </div>
-          <div class="feat">
-            <b>Básicas</b>
-            <span>Perfectas para equipos y emprendimientos.</span>
-          </div>
-          <div class="feat">
-            <b>Estampas premium</b>
-            <span>Te asesoramos según tu diseño.</span>
-          </div>
-        </div>
-
         <div style="height:12px"></div>
 
         <div class="cta-band">
@@ -623,35 +595,6 @@
             <p>Mandanos el diseño + cantidad y te pasamos precio y tiempos.</p>
           </div>
           <a class="btn btn-primary" id="ctaBand" href="#">Hablar por WhatsApp</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="como">
-      <div class="wrap">
-        <div class="section-title">
-          <div>
-            <h2>Cómo trabajamos</h2>
-            <p>Proceso simple, rápido y sin vueltas.</p>
-          </div>
-        </div>
-
-        <div class="steps">
-          <div class="step">
-            <div class="badge">1</div>
-            <b>Nos pasás tu idea</b>
-            <span>Logo/imagen o referencia + tipo de prenda y cantidad.</span>
-          </div>
-          <div class="step">
-            <div class="badge">2</div>
-            <b>Armamos mockup</b>
-            <span>Te mostramos cómo queda (y ajustamos si hace falta).</span>
-          </div>
-          <div class="step">
-            <div class="badge">3</div>
-            <b>Producción y entrega</b>
-            <span>Confirmás, producimos y coordinamos entrega/envío.</span>
-          </div>
         </div>
       </div>
     </section>
@@ -677,60 +620,41 @@
           </details>
 
           <details>
-            <summary>¿Pueden ayudarme con el diseño?</summary>
-            <p>Podemos orientarte con una referencia y armarte el mockup. Si necesitás diseño desde cero, lo coordinamos aparte.</p>
-          </details>
-
-          <details>
             <summary>¿Tienen tabla de talles?</summary>
             <p>Sí. Te la enviamos por WhatsApp y te ayudamos a elegir según el modelo de remera.</p>
           </details>
-        </div>
-      </div>
-    </section>
 
-    <section>
-      <div class="wrap">
-        <div class="cta-band">
-          <div>
-            <h3>Listo, ¿qué querés hacer ahora?</h3>
-            <p>Elegí una opción y te dejamos el mensaje armado para enviar.</p>
-          </div>
-          <div style="display:flex; gap:10px; flex-wrap:wrap">
-            <a class="btn btn-primary" id="ctaBottomMockup" href="#">Pedir mockup</a>
-            <a class="btn" id="ctaBottomMayor" href="#">Cotizar por mayor</a>
-            <a class="btn" id="ctaBottomUnidad" href="#">Cotizar 1 unidad</a>
-          </div>
+          <details>
+            <summary>¿Pueden ayudarme con el diseño?</summary>
+            <p>Te orientamos con referencias y armamos el mockup. Si necesitás diseño desde cero, lo coordinamos aparte.</p>
+          </details>
         </div>
       </div>
     </section>
   </main>
 
   <footer id="footer">
-    <div class="wrap">
+    <div class="wrap" style="padding-top:16px; padding-bottom:80px">
       <div class="foot">
-        <div>
-          <div class="brand" style="gap:10px">
-            <div class="logoWrap" aria-hidden="true" style="width:42px;height:42px;border-radius:18px">
-              <div class="logoInner" style="border-radius:16px">
-                <img class="logoImg" src="https://iili.io/fspAAla.md.jpg" alt="NOXH Estampados logo">
-              </div>
+        <div class="brand" style="gap:10px">
+          <div class="logoWrap" aria-hidden="true" style="width:42px;height:42px;border-radius:18px">
+            <div class="logoInner" style="border-radius:16px">
+              <img class="logoImg" src="https://iili.io/fspAAla.md.jpg" alt="NOXH Estampados logo">
             </div>
-            <div>
-              <div style="font-weight:900">NOXH Estampados</div>
-              <small>Remeras lisas • Oversize • Estampas premium</small>
-            </div>
+          </div>
+          <div>
+            <div style="font-weight:900">NOXH Estampados</div>
+            <small style="color:var(--muted)">Remeras lisas • Oversize • Estampas premium</small>
           </div>
         </div>
 
         <div class="credit">
-          <small>Creado y diseñado por <a href="https://ciborg347.onrender.com" target="_blank" rel="noopener">Ciborg 347</a></small>
+          <small style="color:var(--muted)">Creado y diseñado por <a href="https://ciborg347.onrender.com" target="_blank" rel="noopener">Ciborg 347</a></small>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- WhatsApp Floating Button (logo oficial en SVG) -->
   <a class="wa-float" id="waFloat" href="#" aria-label="Contactar por WhatsApp">
     <svg class="wa-ico" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
       <path fill="#fff" d="M19.11 17.47c-.27-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.61.14-.18.27-.7.89-.86 1.07-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.02-.22-.53-.44-.46-.61-.47-.16-.01-.34-.01-.52-.01s-.48.07-.73.34c-.25.27-.95.93-.95 2.27s.98 2.64 1.11 2.82c.14.18 1.93 2.95 4.67 4.14.65.28 1.16.45 1.56.58.66.21 1.26.18 1.73.11.53-.08 1.62-.66 1.85-1.29.23-.63.23-1.18.16-1.29-.07-.11-.25-.18-.52-.32z"/>
@@ -764,44 +688,10 @@ Quiero pedir un MOCKUP.
 
 ¿Me decís precio y tiempos?`;
 
-    const msgMayor =
-`Hola ${DEFAULT_NAME}! 👋
-Quiero cotizar por MAYOR.
-
-✅ Modelo (oversize/básica):
-✅ Cantidad aproximada:
-✅ Estampa (sí/no) + tipo:
-✅ Para cuándo lo necesito:
-
-¿Me pasás escala de precios y tiempos?`;
-
-    const msgUnidad =
-`Hola ${DEFAULT_NAME}! 👋
-Quiero cotizar 1 remera.
-
-✅ Modelo (oversize/básica):
-✅ Talle:
-✅ Estampa (sí/no) + diseño:
-
-¿Me pasás el precio final y tiempos?`;
-
     setHref(document.getElementById("ctaTop"), msgMockup);
     setHref(document.getElementById("ctaHero"), msgMockup);
-    setHref(document.getElementById("ctaPrice"), msgUnidad);
     setHref(document.getElementById("ctaBand"), msgMockup);
-
-    setHref(document.getElementById("ctaBottomMockup"), msgMockup);
-    setHref(document.getElementById("ctaBottomMayor"), msgMayor);
-    setHref(document.getElementById("ctaBottomUnidad"), msgUnidad);
     setHref(document.getElementById("waFloat"), msgMockup);
-
-    document.querySelectorAll("[data-quick]").forEach(btn=>{
-      btn.addEventListener("click", ()=>{
-        const type = btn.getAttribute("data-quick");
-        const msg = type === "mayor" ? msgMayor : (type === "unidad" ? msgUnidad : msgMockup);
-        window.open(waLink(msg), "_blank", "noopener");
-      });
-    });
 
     const waBtn = document.getElementById("waFloat");
     const footer = document.getElementById("footer");
@@ -812,12 +702,7 @@ Quiero cotizar 1 remera.
       const footerRect = footer.getBoundingClientRect();
       const viewportH = window.innerHeight;
       const overlap = (viewportH - footerRect.top);
-      if(overlap > 0){
-        const lift = overlap + margin;
-        waBtn.style.bottom = (margin + lift) + "px";
-      } else {
-        waBtn.style.bottom = margin + "px";
-      }
+      waBtn.style.bottom = (overlap > 0) ? (margin + overlap + margin) + "px" : margin + "px";
     }
 
     window.addEventListener("scroll", adjustWA, {passive:true});
@@ -826,3 +711,4 @@ Quiero cotizar 1 remera.
   </script>
 </body>
 </html>
+```

@@ -36,20 +36,35 @@
     }
 
     :root{
-      --bg:#0b0b10;
-      --card:#12121a;
-      --text:#f4f5ff;
+      --bg:#08080d;
+      --text:#f8f9ff;
       --muted:#b9bdd7;
       --line:rgba(255,255,255,.10);
-      --accent:#ff2bd6;
-      --accent2:#7c4dff;
       --ok:#25D366;
+
+      /* Paleta */
+      --pink:#ff2bd6;
+      --cyan:#00e5ff;
+      --blue:#3a7bff;
+      --green:#27f59a;
+      --black:#000000;
+      --white:#ffffff;
+
+      /* Degradé principal (rosa + cian + azul + verde + negro + blanco) */
+      --brand-grad: linear-gradient(135deg,
+        rgba(255, 43, 214, .98) 0%,
+        rgba(0, 229, 255, .98) 22%,
+        rgba(58, 123, 255, .98) 44%,
+        rgba(39, 245, 154, .98) 66%,
+        rgba(0, 0, 0, .98) 83%,
+        rgba(255, 255, 255, .98) 100%
+      );
+
       --shadow: 0 18px 60px rgba(0,0,0,.55);
       --radius: 20px;
       --max: 1100px;
 
       /* IMÁGENES */
-      --logo-url: url("https://iili.io/fsDD8MJ.md.png");
       --hero-bg: url("https://iili.io/fsDpNuS.md.jpg"); /* overlay background */
     }
 
@@ -59,9 +74,10 @@
       margin:0;
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       background:
-        radial-gradient(1200px 700px at 15% -10%, rgba(255,43,214,.18), transparent 60%),
-        radial-gradient(1000px 650px at 85% 5%, rgba(124,77,255,.18), transparent 58%),
-        radial-gradient(900px 600px at 50% 90%, rgba(37,211,102,.10), transparent 60%),
+        radial-gradient(1200px 700px at 15% -10%, rgba(255,43,214,.16), transparent 60%),
+        radial-gradient(1000px 650px at 85% 5%, rgba(0,229,255,.14), transparent 58%),
+        radial-gradient(900px 600px at 50% 92%, rgba(39,245,154,.10), transparent 60%),
+        radial-gradient(900px 600px at 50% 30%, rgba(58,123,255,.12), transparent 60%),
         var(--bg);
       color:var(--text);
       line-height:1.35;
@@ -73,19 +89,26 @@
     .topbar{
       position:sticky; top:0; z-index:40;
       backdrop-filter: blur(14px);
-      background: linear-gradient(to bottom, rgba(11,11,16,.78), rgba(11,11,16,.38));
+      background: linear-gradient(to bottom, rgba(8,8,13,.82), rgba(8,8,13,.42));
       border-bottom:1px solid var(--line);
     }
     .topbar-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
     .brand{display:flex; align-items:center; gap:12px; min-width:0;}
 
     .logoWrap{
-      width:44px; height:44px; border-radius:16px;
+      width:46px; height:46px; border-radius:18px;
+      padding:2px;
+      background: var(--brand-grad);
+      box-shadow: 0 12px 34px rgba(0,0,0,.45);
+    }
+    .logoInner{
+      width:100%; height:100%;
+      border-radius:16px;
       background: rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.14);
       display:grid; place-items:center;
       overflow:hidden;
-      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
     }
     .logoImg{
       width:92%;
@@ -103,8 +126,8 @@
     .nav a{
       text-decoration:none;
       font-size:13px;
-      color:rgba(244,245,255,.9);
-      opacity:.92;
+      color:rgba(248,249,255,.92);
+      opacity:.94;
       padding:10px 10px;
       border-radius:12px;
       border:1px solid transparent;
@@ -119,30 +142,36 @@
       background:rgba(255,255,255,.06);
       color:var(--text);
       text-decoration:none;
-      font-weight:700;
+      font-weight:800;
       box-shadow: 0 10px 26px rgba(0,0,0,.25);
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, filter .15s ease;
       cursor:pointer;
     }
     .btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.085); border-color:rgba(255,255,255,.22)}
     .btn-primary{
-      border-color: rgba(255,43,214,.35);
-      background: linear-gradient(135deg, rgba(255,43,214,.92), rgba(124,77,255,.92));
-      box-shadow: 0 20px 55px rgba(124,77,255,.22);
+      border:none;
+      background: var(--brand-grad);
+      color:#06060a;
+      box-shadow: 0 22px 60px rgba(0,0,0,.42);
+      filter:saturate(1.05);
     }
-    .btn-primary:hover{background: linear-gradient(135deg, rgba(255,43,214,.98), rgba(124,77,255,.98))}
+    .btn-primary:hover{filter:saturate(1.12) brightness(1.03)}
 
     .pill{
       display:inline-flex; gap:8px; align-items:center;
       padding:8px 12px;
-      border:1px solid var(--line);
+      border:1px solid rgba(255,255,255,.14);
       background:rgba(255,255,255,.04);
       border-radius:999px;
-      color:rgba(244,245,255,.92);
+      color:rgba(248,249,255,.92);
       font-size:12px;
       white-space:nowrap;
     }
-    .dot{width:8px;height:8px;border-radius:99px;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+    .dot{
+      width:8px;height:8px;border-radius:99px;
+      background: var(--brand-grad);
+      box-shadow: 0 0 0 3px rgba(255,255,255,.04);
+    }
 
     header.hero{padding:28px 0 18px;}
     .hero-grid{
@@ -153,8 +182,8 @@
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
       border:1px solid var(--line);
-      border-radius: 20px;
-      box-shadow: 0 18px 60px rgba(0,0,0,.55);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
 
     .hero-left{
@@ -169,14 +198,16 @@
       background-position: center;
       filter: saturate(1.05) contrast(1.05);
       transform: scale(1.02);
-      opacity:.75;
+      opacity:.72;
     }
     .hero-overlay{
       position:absolute; inset:0;
       background:
-        radial-gradient(900px 500px at 10% 10%, rgba(255,43,214,.32), transparent 55%),
-        radial-gradient(900px 500px at 90% 10%, rgba(124,77,255,.32), transparent 55%),
-        linear-gradient(180deg, rgba(11,11,16,.58), rgba(11,11,16,.92));
+        radial-gradient(900px 500px at 10% 10%, rgba(255,43,214,.30), transparent 55%),
+        radial-gradient(900px 500px at 92% 10%, rgba(0,229,255,.26), transparent 55%),
+        radial-gradient(900px 500px at 50% 18%, rgba(58,123,255,.18), transparent 62%),
+        radial-gradient(900px 500px at 50% 88%, rgba(39,245,154,.16), transparent 62%),
+        linear-gradient(180deg, rgba(8,8,13,.55), rgba(8,8,13,.92));
     }
     .hero-content{position:relative; padding:22px 20px;}
     .kicker{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:12px;}
@@ -188,10 +219,11 @@
       line-height:0.95;
       letter-spacing:.01em;
       text-transform: uppercase;
+      text-shadow: 0 18px 55px rgba(0,0,0,.55);
     }
     .hero-sub{
       margin:0 0 16px 0;
-      color:rgba(225,227,245,.92);
+      color:rgba(230,233,250,.92);
       font-size: 15px;
       max-width: 58ch;
     }
@@ -205,7 +237,7 @@
     .mini span{
       display:inline-flex; gap:8px; align-items:center;
       padding:8px 10px; border:1px solid rgba(255,255,255,.14);
-      border-radius:999px; background:rgba(11,11,16,.35);
+      border-radius:999px; background:rgba(8,8,13,.35);
       backdrop-filter: blur(10px);
     }
     .check{
@@ -223,7 +255,14 @@
       background: linear-gradient(180deg, rgba(18,18,26,.85), rgba(18,18,26,.55));
       border:1px solid rgba(255,255,255,.10);
     }
-    .quote h3{margin:0 0 8px; font-size:14px;}
+    .quote h3{
+      margin:0 0 8px;
+      font-family:"VehicleBreaksDown", Inter, system-ui, sans-serif;
+      font-size:18px;
+      letter-spacing:.01em;
+      text-transform: uppercase;
+      line-height:1;
+    }
     .quote p{margin:0; color:var(--muted); font-size:13px;}
 
     .filter{
@@ -233,7 +272,7 @@
       background: linear-gradient(180deg, rgba(21,21,36,.75), rgba(21,21,36,.5));
       border:1px solid rgba(255,255,255,.10);
     }
-    .filter h4{margin:0 0 10px; font-size:13px; color:rgba(244,245,255,.92)}
+    .filter h4{margin:0 0 10px; font-size:13px; color:rgba(248,249,255,.92)}
     .grid3{display:grid; gap:10px; grid-template-columns: repeat(3, minmax(0,1fr));}
     .opt{
       width:100%;
@@ -242,13 +281,13 @@
       border-radius:16px;
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
-      color: rgba(244,245,255,.95);
-      font-weight:700;
+      color: rgba(248,249,255,.95);
+      font-weight:800;
       cursor:pointer;
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
       min-height:58px;
     }
-    .opt small{display:block; font-weight:600; opacity:.8; margin-top:2px; color:var(--muted)}
+    .opt small{display:block; font-weight:700; opacity:.8; margin-top:2px; color:var(--muted)}
     .opt:hover{transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.22)}
 
     section{padding:18px 0;}
@@ -266,7 +305,6 @@
     }
     .section-title p{margin:0; color:var(--muted); font-size:13px;}
 
-    /* Productos */
     .products{
       display:grid; gap:12px;
       grid-template-columns: repeat(12, 1fr);
@@ -279,6 +317,21 @@
       background: rgba(255,255,255,.03);
       overflow:hidden;
       box-shadow:none;
+      position:relative;
+    }
+    .prod:before{
+      content:"";
+      position:absolute; inset:-1px;
+      border-radius:18px;
+      padding:1px;
+      background: var(--brand-grad);
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      opacity:.55;
+      pointer-events:none;
     }
     .prod-media{
       width:100%;
@@ -295,16 +348,8 @@
       display:block;
       transform: scale(1.01);
     }
-    .prod h3{
-      margin:10px 0 4px;
-      font-size:14px;
-      letter-spacing:-.01em;
-    }
-    .prod p{
-      margin:0;
-      color:var(--muted);
-      font-size:12.5px;
-    }
+    .prod h3{margin:10px 0 4px; font-size:14px; letter-spacing:-.01em;}
+    .prod p{margin:0; color:var(--muted); font-size:12.5px;}
     .prod .tag{
       margin-top:10px;
       display:inline-flex;
@@ -313,9 +358,9 @@
       padding:7px 10px;
       border-radius:999px;
       border:1px solid rgba(255,255,255,.12);
-      background: rgba(11,11,16,.35);
+      background: rgba(8,8,13,.35);
       font-size:12px;
-      color:rgba(244,245,255,.92);
+      color:rgba(248,249,255,.92);
     }
 
     .features{display:grid; gap:12px; grid-template-columns: repeat(3, minmax(0,1fr));}
@@ -328,10 +373,11 @@
     .badge{
       display:inline-flex; align-items:center; justify-content:center;
       width:30px;height:30px;border-radius:12px;
-      background: linear-gradient(135deg, rgba(255,43,214,.22), rgba(124,77,255,.22));
-      border:1px solid rgba(255,43,214,.28);
-      font-weight:800;
+      background: var(--brand-grad);
+      color:#06060a;
+      font-weight:900;
       margin-bottom:10px;
+      border:1px solid rgba(255,255,255,.18);
     }
     .step b{display:block; margin-bottom:6px;}
     .step span{color:var(--muted); font-size:13px;}
@@ -340,9 +386,14 @@
       padding:16px;
       border-radius:20px;
       border:1px solid rgba(255,255,255,.12);
-      background: linear-gradient(135deg, rgba(255,43,214,.14), rgba(124,77,255,.12), rgba(37,211,102,.08));
+      background: linear-gradient(135deg,
+        rgba(255,43,214,.14),
+        rgba(0,229,255,.12),
+        rgba(58,123,255,.10),
+        rgba(39,245,154,.08)
+      );
       display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap;
-      box-shadow: 0 18px 60px rgba(0,0,0,.55);
+      box-shadow: var(--shadow);
     }
     .cta-band h3{
       margin:0;
@@ -361,7 +412,7 @@
       border-radius:18px;
       padding:12px 14px;
     }
-    summary{cursor:pointer; font-weight:800; font-size:13px}
+    summary{cursor:pointer; font-weight:900; font-size:13px}
     details p{margin:8px 0 0; color:var(--muted); font-size:13px}
 
     footer{
@@ -374,7 +425,7 @@
       display:flex; gap:12px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;
     }
     .foot small{color:var(--muted)}
-    .credit a{color:rgba(244,245,255,.92); text-decoration:none; border-bottom:1px dashed rgba(255,255,255,.25)}
+    .credit a{color:rgba(248,249,255,.92); text-decoration:none; border-bottom:1px dashed rgba(255,255,255,.25)}
     .credit a:hover{border-bottom-color:rgba(255,255,255,.6)}
 
     /* WhatsApp Floating Button */
@@ -395,7 +446,6 @@
     .wa-float:hover{filter:brightness(1.03)}
     .wa-ico{width:28px; height:28px; display:block}
 
-    /* Responsive */
     @media (max-width: 980px){
       .hero-grid{grid-template-columns:1fr}
       .grid3{grid-template-columns:1fr}
@@ -419,7 +469,9 @@
       <div class="topbar-inner">
         <div class="brand">
           <div class="logoWrap" aria-hidden="true">
-            <img class="logoImg" src="https://iili.io/fsDD8MJ.md.png" alt="NOXH Estampados logo">
+            <div class="logoInner">
+              <img class="logoImg" src="https://iili.io/fspAAla.md.jpg" alt="NOXH Estampados logo">
+            </div>
           </div>
           <div style="min-width:0">
             <h1>NOXH Estampados</h1>
@@ -446,8 +498,8 @@
           <div class="hero-content">
             <div class="kicker">
               <span class="pill"><span class="dot"></span> Empresa textil</span>
-              <span class="pill"><span class="dot" style="background:linear-gradient(135deg,var(--ok),rgba(255,255,255,.2))"></span> Atención por WhatsApp</span>
-              <span class="pill"><span class="dot" style="background:linear-gradient(135deg,#fff,rgba(255,255,255,.2))"></span> Pedí tu mockup</span>
+              <span class="pill"><span class="dot" style="background:rgba(37,211,102,.95)"></span> Atención por WhatsApp</span>
+              <span class="pill"><span class="dot"></span> Pedí tu mockup</span>
             </div>
 
             <h2 class="hero-title">Tu marca empieza en una remera</h2>
@@ -472,7 +524,7 @@
 
         <aside class="card hero-right">
           <div class="quote">
-            <h3>Para cotizar bien, te pedimos 3 datos:</h3>
+            <h3>Para cotizar bien</h3>
             <p>Tipo de prenda, cantidad y diseño (logo/idea). Con eso te pasamos precio y tiempos.</p>
           </div>
 
@@ -509,7 +561,7 @@
         </div>
 
         <div class="products" aria-label="Productos">
-          <article class="prod card">
+          <article class="prod">
             <div class="prod-media">
               <img src="https://iili.io/fsmVuDu.th.jpg" alt="Producto 1 NOXH">
             </div>
@@ -518,7 +570,7 @@
             <span class="tag">Mockup + cotización</span>
           </article>
 
-          <article class="prod card">
+          <article class="prod">
             <div class="prod-media">
               <img src="https://iili.io/fsDmS7p.md.jpg" alt="Producto 2 NOXH">
             </div>
@@ -527,7 +579,7 @@
             <span class="tag">Consultá talles</span>
           </article>
 
-          <article class="prod card">
+          <article class="prod">
             <div class="prod-media">
               <img src="https://iili.io/fsDmkrv.md.jpg" alt="Producto 3 NOXH">
             </div>
@@ -536,7 +588,7 @@
             <span class="tag">Unidad o mayor</span>
           </article>
 
-          <article class="prod card">
+          <article class="prod">
             <div class="prod-media">
               <img src="https://iili.io/fsDm82R.md.jpg" alt="Producto 4 NOXH">
             </div>
@@ -549,15 +601,15 @@
         <div style="height:14px"></div>
 
         <div class="features">
-          <div class="feat card" style="box-shadow:none;">
+          <div class="feat">
             <b>Oversize</b>
             <span>Caída amplia, ideal marca/colección.</span>
           </div>
-          <div class="feat card" style="box-shadow:none;">
+          <div class="feat">
             <b>Básicas</b>
             <span>Perfectas para equipos y emprendimientos.</span>
           </div>
-          <div class="feat card" style="box-shadow:none;">
+          <div class="feat">
             <b>Estampas premium</b>
             <span>Te asesoramos según tu diseño.</span>
           </div>
@@ -585,17 +637,17 @@
         </div>
 
         <div class="steps">
-          <div class="step card" style="box-shadow:none;">
+          <div class="step">
             <div class="badge">1</div>
             <b>Nos pasás tu idea</b>
             <span>Logo/imagen o referencia + tipo de prenda y cantidad.</span>
           </div>
-          <div class="step card" style="box-shadow:none;">
+          <div class="step">
             <div class="badge">2</div>
             <b>Armamos mockup</b>
             <span>Te mostramos cómo queda (y ajustamos si hace falta).</span>
           </div>
-          <div class="step card" style="box-shadow:none;">
+          <div class="step">
             <div class="badge">3</div>
             <b>Producción y entrega</b>
             <span>Confirmás, producimos y coordinamos entrega/envío.</span>
@@ -659,11 +711,13 @@
       <div class="foot">
         <div>
           <div class="brand" style="gap:10px">
-            <div class="logoWrap" aria-hidden="true" style="width:40px;height:40px;border-radius:16px">
-              <img class="logoImg" src="https://iili.io/fsDD8MJ.md.png" alt="NOXH Estampados logo">
+            <div class="logoWrap" aria-hidden="true" style="width:42px;height:42px;border-radius:18px">
+              <div class="logoInner" style="border-radius:16px">
+                <img class="logoImg" src="https://iili.io/fspAAla.md.jpg" alt="NOXH Estampados logo">
+              </div>
             </div>
             <div>
-              <div style="font-weight:800">NOXH Estampados</div>
+              <div style="font-weight:900">NOXH Estampados</div>
               <small>Remeras lisas • Oversize • Estampas premium</small>
             </div>
           </div>
@@ -685,11 +739,9 @@
   </a>
 
   <script>
-    // ========= Config =========
     const WHATSAPP_NUMBER = "5491128330641"; // Cambiá si hace falta
     const DEFAULT_NAME = "NOXH Estampados";
 
-    // ========= Helpers =========
     function waLink(message){
       const text = encodeURIComponent(message);
       return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
@@ -701,7 +753,6 @@
       el.setAttribute("rel","noopener");
     }
 
-    // ========= CTA Messages (pre-venta + filtro) =========
     const msgMockup =
 `Hola ${DEFAULT_NAME}! 👋
 Quiero pedir un MOCKUP.
@@ -734,7 +785,6 @@ Quiero cotizar 1 remera.
 
 ¿Me pasás el precio final y tiempos?`;
 
-    // ========= Bind CTAs =========
     setHref(document.getElementById("ctaTop"), msgMockup);
     setHref(document.getElementById("ctaHero"), msgMockup);
     setHref(document.getElementById("ctaPrice"), msgUnidad);
@@ -745,7 +795,6 @@ Quiero cotizar 1 remera.
     setHref(document.getElementById("ctaBottomUnidad"), msgUnidad);
     setHref(document.getElementById("waFloat"), msgMockup);
 
-    // Quick options
     document.querySelectorAll("[data-quick]").forEach(btn=>{
       btn.addEventListener("click", ()=>{
         const type = btn.getAttribute("data-quick");
@@ -754,17 +803,14 @@ Quiero cotizar 1 remera.
       });
     });
 
-    // ========= Keep WhatsApp button above footer (no tapa contenido) =========
     const waBtn = document.getElementById("waFloat");
     const footer = document.getElementById("footer");
 
     function adjustWA(){
       if(!waBtn || !footer) return;
       const margin = 16;
-
       const footerRect = footer.getBoundingClientRect();
       const viewportH = window.innerHeight;
-
       const overlap = (viewportH - footerRect.top);
       if(overlap > 0){
         const lift = overlap + margin;

@@ -1,4 +1,3 @@
-```html
 <!doctype html>
 <html lang="es-AR">
 <head>
@@ -50,9 +49,8 @@
       --max: 1100px;
 
       /* IMÁGENES */
-      --page-bg: url("https://iili.io/fsDpNuS.md.jpg"); /* fondo de TODA la página */
-      --logo-main: url("https://iili.io/fspAAla.md.jpg"); /* logo principal (nav/hero/footer) */
-      --hero-overlay: url("https://iili.io/fsDpNuS.md.jpg"); /* overlay/hero (mismo que fondo, por si querés cambiar luego) */
+      --logo-url: url("https://iili.io/fsDD8MJ.md.png");
+      --hero-bg: url("https://iili.io/fsDpNuS.md.jpg"); /* overlay background */
     }
 
     *{box-sizing:border-box}
@@ -60,15 +58,11 @@
     body{
       margin:0;
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-
-      /* Fondo en toda la página */
       background:
-        linear-gradient(180deg, rgba(11,11,16,.82), rgba(11,11,16,.90)),
-        var(--page-bg);
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-
+        radial-gradient(1200px 700px at 15% -10%, rgba(255,43,214,.18), transparent 60%),
+        radial-gradient(1000px 650px at 85% 5%, rgba(124,77,255,.18), transparent 58%),
+        radial-gradient(900px 600px at 50% 90%, rgba(37,211,102,.10), transparent 60%),
+        var(--bg);
       color:var(--text);
       line-height:1.35;
       overflow-x:hidden;
@@ -79,7 +73,7 @@
     .topbar{
       position:sticky; top:0; z-index:40;
       backdrop-filter: blur(14px);
-      background: linear-gradient(to bottom, rgba(11,11,16,.72), rgba(11,11,16,.28));
+      background: linear-gradient(to bottom, rgba(11,11,16,.78), rgba(11,11,16,.38));
       border-bottom:1px solid var(--line);
     }
     .topbar-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
@@ -159,8 +153,8 @@
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
       border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      border-radius: 20px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.55);
     }
 
     .hero-left{
@@ -168,23 +162,21 @@
       overflow:hidden;
       position:relative;
     }
-
-    /* Hero con imagen overlay propia (igual a la del fondo, según pediste) */
     .hero-bg{
       position:absolute; inset:0;
-      background-image: var(--hero-overlay);
+      background-image: var(--hero-bg);
       background-size: cover;
       background-position: center;
-      transform: scale(1.02);
-      opacity:.85;
       filter: saturate(1.05) contrast(1.05);
+      transform: scale(1.02);
+      opacity:.75;
     }
     .hero-overlay{
       position:absolute; inset:0;
       background:
-        radial-gradient(900px 500px at 10% 10%, rgba(255,43,214,.30), transparent 55%),
-        radial-gradient(900px 500px at 90% 10%, rgba(124,77,255,.30), transparent 55%),
-        linear-gradient(180deg, rgba(11,11,16,.55), rgba(11,11,16,.92));
+        radial-gradient(900px 500px at 10% 10%, rgba(255,43,214,.32), transparent 55%),
+        radial-gradient(900px 500px at 90% 10%, rgba(124,77,255,.32), transparent 55%),
+        linear-gradient(180deg, rgba(11,11,16,.58), rgba(11,11,16,.92));
     }
     .hero-content{position:relative; padding:22px 20px;}
     .kicker{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:12px;}
@@ -259,20 +251,6 @@
     .opt small{display:block; font-weight:600; opacity:.8; margin-top:2px; color:var(--muted)}
     .opt:hover{transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.22)}
 
-    /* Logo principal grande en HERO */
-    .hero-logo{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin: 6px 0 12px;
-    }
-    .hero-logo-img{
-      width:min(220px, 70vw);
-      height:auto;
-      display:block;
-      filter: drop-shadow(0 18px 40px rgba(0,0,0,.55));
-    }
-
     section{padding:18px 0;}
     .section-title{
       display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
@@ -288,24 +266,6 @@
     }
     .section-title p{margin:0; color:var(--muted); font-size:13px;}
 
-    .features{display:grid; gap:12px; grid-template-columns: repeat(3, minmax(0,1fr));}
-    .feat{padding:14px; border-radius:18px; background: rgba(255,255,255,.03); border:1px solid var(--line);}
-    .feat b{display:block; font-size:14px; margin-bottom:6px;}
-    .feat span{color:var(--muted); font-size:13px;}
-
-    .steps{display:grid; gap:12px; grid-template-columns: repeat(3, minmax(0,1fr));}
-    .step{padding:14px; border-radius:18px; background: rgba(255,255,255,.03); border:1px solid var(--line);}
-    .badge{
-      display:inline-flex; align-items:center; justify-content:center;
-      width:30px;height:30px;border-radius:12px;
-      background: linear-gradient(135deg, rgba(255,43,214,.22), rgba(124,77,255,.22));
-      border:1px solid rgba(255,43,214,.28);
-      font-weight:800;
-      margin-bottom:10px;
-    }
-    .step b{display:block; margin-bottom:6px;}
-    .step span{color:var(--muted); font-size:13px;}
-
     /* Productos */
     .products{
       display:grid; gap:12px;
@@ -318,6 +278,7 @@
       border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
       overflow:hidden;
+      box-shadow:none;
     }
     .prod-media{
       width:100%;
@@ -357,13 +318,31 @@
       color:rgba(244,245,255,.92);
     }
 
+    .features{display:grid; gap:12px; grid-template-columns: repeat(3, minmax(0,1fr));}
+    .feat{padding:14px; border-radius:18px; background: rgba(255,255,255,.03); border:1px solid var(--line);}
+    .feat b{display:block; font-size:14px; margin-bottom:6px;}
+    .feat span{color:var(--muted); font-size:13px;}
+
+    .steps{display:grid; gap:12px; grid-template-columns: repeat(3, minmax(0,1fr));}
+    .step{padding:14px; border-radius:18px; background: rgba(255,255,255,.03); border:1px solid var(--line);}
+    .badge{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:30px;height:30px;border-radius:12px;
+      background: linear-gradient(135deg, rgba(255,43,214,.22), rgba(124,77,255,.22));
+      border:1px solid rgba(255,43,214,.28);
+      font-weight:800;
+      margin-bottom:10px;
+    }
+    .step b{display:block; margin-bottom:6px;}
+    .step span{color:var(--muted); font-size:13px;}
+
     .cta-band{
       padding:16px;
       border-radius:20px;
       border:1px solid rgba(255,255,255,.12);
       background: linear-gradient(135deg, rgba(255,43,214,.14), rgba(124,77,255,.12), rgba(37,211,102,.08));
       display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap;
-      box-shadow: var(--shadow);
+      box-shadow: 0 18px 60px rgba(0,0,0,.55);
     }
     .cta-band h3{
       margin:0;
@@ -398,15 +377,6 @@
     .credit a{color:rgba(244,245,255,.92); text-decoration:none; border-bottom:1px dashed rgba(255,255,255,.25)}
     .credit a:hover{border-bottom-color:rgba(255,255,255,.6)}
 
-    /* Logo en footer */
-    .footer-logo{
-      width:140px;
-      height:auto;
-      display:block;
-      margin-bottom:10px;
-      filter: drop-shadow(0 14px 30px rgba(0,0,0,.45));
-    }
-
     /* WhatsApp Floating Button */
     .wa-float{
       position:fixed;
@@ -435,12 +405,10 @@
       .prod{grid-column: span 12}
       .nav a{display:none}
       .nav .btn{display:inline-flex}
-      body{background-attachment: scroll;}
     }
     @media (max-width: 520px){
       .topbar-inner{gap:10px}
       .brand p{display:none}
-      .footer-logo{width:120px}
     }
   </style>
 </head>
@@ -451,7 +419,7 @@
       <div class="topbar-inner">
         <div class="brand">
           <div class="logoWrap" aria-hidden="true">
-            <img class="logoImg" src="https://iili.io/fspAAla.md.jpg" alt="NOXH Estampados logo">
+            <img class="logoImg" src="https://iili.io/fsDD8MJ.md.png" alt="NOXH Estampados logo">
           </div>
           <div style="min-width:0">
             <h1>NOXH Estampados</h1>
@@ -480,11 +448,6 @@
               <span class="pill"><span class="dot"></span> Empresa textil</span>
               <span class="pill"><span class="dot" style="background:linear-gradient(135deg,var(--ok),rgba(255,255,255,.2))"></span> Atención por WhatsApp</span>
               <span class="pill"><span class="dot" style="background:linear-gradient(135deg,#fff,rgba(255,255,255,.2))"></span> Pedí tu mockup</span>
-            </div>
-
-            <!-- LOGO PRINCIPAL EN HERO -->
-            <div class="hero-logo" aria-label="Logo principal">
-              <img class="hero-logo-img" src="https://iili.io/fspAAla.md.jpg" alt="NOXH Estampados logo principal">
             </div>
 
             <h2 class="hero-title">Tu marca empieza en una remera</h2>
@@ -546,7 +509,7 @@
         </div>
 
         <div class="products" aria-label="Productos">
-          <article class="prod card" style="box-shadow:none;">
+          <article class="prod card">
             <div class="prod-media">
               <img src="https://iili.io/fsmVuDu.th.jpg" alt="Producto 1 NOXH">
             </div>
@@ -555,7 +518,7 @@
             <span class="tag">Mockup + cotización</span>
           </article>
 
-          <article class="prod card" style="box-shadow:none;">
+          <article class="prod card">
             <div class="prod-media">
               <img src="https://iili.io/fsDmS7p.md.jpg" alt="Producto 2 NOXH">
             </div>
@@ -564,7 +527,7 @@
             <span class="tag">Consultá talles</span>
           </article>
 
-          <article class="prod card" style="box-shadow:none;">
+          <article class="prod card">
             <div class="prod-media">
               <img src="https://iili.io/fsDmkrv.md.jpg" alt="Producto 3 NOXH">
             </div>
@@ -573,7 +536,7 @@
             <span class="tag">Unidad o mayor</span>
           </article>
 
-          <article class="prod card" style="box-shadow:none;">
+          <article class="prod card">
             <div class="prod-media">
               <img src="https://iili.io/fsDm82R.md.jpg" alt="Producto 4 NOXH">
             </div>
@@ -695,9 +658,15 @@
     <div class="wrap">
       <div class="foot">
         <div>
-          <!-- LOGO PRINCIPAL EN FOOTER -->
-          <img class="footer-logo" src="https://iili.io/fspAAla.md.jpg" alt="NOXH Estampados logo principal footer">
-          <small>Remeras lisas • Oversize • Estampas premium</small>
+          <div class="brand" style="gap:10px">
+            <div class="logoWrap" aria-hidden="true" style="width:40px;height:40px;border-radius:16px">
+              <img class="logoImg" src="https://iili.io/fsDD8MJ.md.png" alt="NOXH Estampados logo">
+            </div>
+            <div>
+              <div style="font-weight:800">NOXH Estampados</div>
+              <small>Remeras lisas • Oversize • Estampas premium</small>
+            </div>
+          </div>
         </div>
 
         <div class="credit">
@@ -811,4 +780,3 @@ Quiero cotizar 1 remera.
   </script>
 </body>
 </html>
-```
